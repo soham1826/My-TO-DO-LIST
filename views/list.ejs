@@ -1,0 +1,59 @@
+<%- include("header") -%>
+    <div class="box" id="heading">
+        <h1><%= listTitle  %></h1>
+        
+    </div>
+
+    <div class="box">
+
+        <%newListItems.forEach(function(item){%>
+        <form action="/delete" method="post">
+            <div class="item">
+                <input type="checkbox" onchange="this.form.submit()"
+                name="checkBox" value="<%=item._id %>">
+                <p><%= item.name %></p>
+    
+            </div>
+            <input type="hidden" name="listName" value="<%=listTitle %>">
+        </form>
+            <% })%>
+
+            
+        <form action="/" method="post" class="item">
+            <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="list" value="<%= listTitle %>">+</button>
+        </form>
+    </div>
+    <div class="instructions">
+        <h2>Some tips for you</h2>
+        <ul>
+            <li>You can just Make new custom list by adding -<b>"/name of your list"</b> after the current url
+            <hr>
+            for Example:
+                http://localhost:3000/Home
+            </li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h2>Made by Soham Kulkarni</h2>
+        <a href="https://github.com/soham1826">
+            <i class="fa-brands fa-github fa-3x"></i>
+        </a>
+        <a href="https://twitter.com/kulsoham18262">
+            <i class="fa-brands fa-twitter fa-3x"></i>
+        </a>
+        <a href="https://www.instagram.com/soham18264/">
+            <i class="fa-brands fa-instagram fa-3x"></i>
+        </a>
+        
+            
+        
+            
+        
+    </div>
+ <%- include("footer") -%>
+    
+
+    
+    
